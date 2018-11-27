@@ -1,14 +1,15 @@
 {
   "app-id": "com.syntevo.SmartSynchronize",
-  "command": "smartsynchronize",
-  "runtime": "org.gnome.Platform",
-  "runtime-version": "3.28",
+  "command": "smartsynchronize.sh",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "18.08",
   "separate-locales": false,
-  "sdk": "org.gnome.Sdk",
+  "sdk": "org.freedesktop.Sdk",
   "finish-args": [
+    "--device=all",
     "--device=dri",
     "--env=SMARTSYNCHRONIZE_JAVA_HOME=/app/extra/smartsynchronize/jre/",
-    "--filesystem=host",
+    "--filesystem=home",
     "--share=ipc",
     "--socket=x11",
     "--talk-name=org.freedesktop.Notifications"
@@ -18,24 +19,20 @@
       "name": "smartsynchronize",
       "buildsystem": "simple",
       "build-commands": [
-        "install -Dm0755 apply_extra /app/bin/apply_extra",
-        "install -Dm0755 smartsynchronize.sh /app/bin/smartsynchronize",
-        "install -Dm0644 smartsynchronize-32.png /app/share/icons/hicolor/32x32/apps/com.syntevo.SmartSynchronize.png",
-        "install -Dm0644 smartsynchronize-48.png /app/share/icons/hicolor/48x48/apps/com.syntevo.SmartSynchronize.png",
-        "install -Dm0644 smartsynchronize-64.png /app/share/icons/hicolor/64x64/apps/com.syntevo.SmartSynchronize.png",
-        "install -Dm0644 smartsynchronize-128.png /app/share/icons/hicolor/128x128/apps/com.syntevo.SmartSynchronize.png",
-        "install -Dm0644 smartsynchronize-256.png /app/share/icons/hicolor/256x256/apps/com.syntevo.SmartSynchronize.png",
-        "install -Dm0644 -t /app/share/appdata/ com.syntevo.SmartSynchronize.appdata.xml",
-        "install -Dm0644 -t /app/share/applications/ com.syntevo.SmartSynchronize.desktop"
+        "install -Dm0755 -t /app/bin/ apply_extra",
+        "install -Dm0755 -t /app/bin/ smartsynchronize.sh",
+        "install -Dm0644 -t /app/share/applications/ com.syntevo.SmartSynchronize.desktop",
+        "install -Dm0644 -t /app/share/icons/hicolor/scalable/apps/ com.syntevo.SmartSynchronize.svg",
+        "install -Dm0644 -t /app/share/metainfo/ com.syntevo.SmartSynchronize.appdata.xml"
       ],
       "sources": [
         {
           "type": "extra-data",
           "filename": "smartsynchronize.tar.gz",
           "only-arches": ["x86_64"],
-          "sha256": "2ff97e7433ca78bdfb2ce62409e624b94f9bcd8b76d603c2493db307df1acb9d",
-          "size": 24334245,
-          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-3_5_0.tar.gz"
+          "sha256": "90d36afe41ffe2de3e34c3f8651fd1430bfbcaa01a95e2fa7edb2f26883f8d1d",
+          "size": 23371944,
+          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-3_5_1.tar.gz"
         },
         {
           "type": "file",
@@ -47,35 +44,21 @@
         },
         {
           "type": "file",
-          "path": "smartsynchronize-32.png"
-        },
-        {
-          "type": "file",
-          "path": "smartsynchronize-48.png"
-        },
-        {
-          "type": "file",
-          "path": "smartsynchronize-64.png"
-        },
-        {
-          "type": "file",
-          "path": "smartsynchronize-128.png"
-        },
-        {
-          "type": "file",
-          "path": "smartsynchronize-256.png"
+          "path": "com.syntevo.SmartSynchronize.svg"
         },
         {
           "type": "script",
           "commands": [
-            "tar -xzf smartsynchronize.tar.gz",
+            "tar -zxf smartsynchronize.tar.gz",
             "rm -f smartsynchronize.tar.gz"
           ],
           "dest-filename": "apply_extra"
         },
         {
           "type": "script",
-          "commands": ["exec env /app/extra/smartsynchronize/bin/smartsynchronize.sh \"$@\""],
+          "commands": [
+            "exec env /app/extra/smartsynchronize/bin/smartsynchronize.sh \"$@\""
+          ],
           "dest-filename": "smartsynchronize.sh"
         }
       ]

@@ -1,8 +1,7 @@
 [Desktop Entry]
 Categories=Development;
-Comment=File and Directory Compare
-Encoding=UTF-8
-Exec=smartsynchronize
+Exec=smartsynchronize.sh
+GenericName=File and Directory Compare
 Icon=com.syntevo.SmartSynchronize
 Keywords=compare;merge;
 Name=SmartSynchronize
