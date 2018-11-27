@@ -1,0 +1,27 @@
+= syntevo SmartSynchronize
+:uri-smartsynchronize-home: https://www.syntevo.com/smartsynchronize/
+
+{uri-smartsynchronize-home}[SmartSynchronize^] is a multi-platform file and directory compare tool. It allows you to
+compare files or perform 3-way-merges, both with the ability to edit the file contents. SmartSynchronize is optimized
+for comparing directory structures (for example, of software projects), and can keep them synchronized.
+
+== Build, Install and Run Flatpak (locally)
+
+Assuming `flatpak` and `flatpak-builder` are installed, follow the next steps:
+
+[source,shell]
+----
+$ git clone https://github.com/flathub/com.syntevo.SmartSynchronize.git
+$ cd com.syntevo.SmartSynchronize/
+$ flatpak-builder build --force-clean --install-deps-from=flathub --install --user com.syntevo.SmartSynchronize.json
+
+# ...and to clean-up everything
+$ flatpak uninstall --user com.syntevo.SmartSynchronize
+$ rm -rf .flatpak-builder/ build/ ~/.var/app/com.syntevo.SmartSynchronize/
+$ flatpak uninstall --unused --user
+----
+
+== Roadmap
+:uri-issues-tracker: https://github.com/flathub/com.syntevo.SmartSynchronize/issues/
+
+See the {uri-issues-tracker}[Issues^] tracker.
