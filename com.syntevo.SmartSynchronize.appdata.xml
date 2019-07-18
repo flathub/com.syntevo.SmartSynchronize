@@ -20,6 +20,9 @@
   <launchable type="desktop-id">com.syntevo.SmartSynchronize.desktop</launchable>
   <screenshots>
     <screenshot type="default">
+      <image>https://www.syntevo.com/assets/images/products/smartsynchronize/4/file-manager-overview-18421351.png</image>
+    </screenshot>
+    <screenshot>
       <image>https://www.syntevo.com/assets/images/products/smartsynchronize/directory-compare-4bc25510.png</image>
     </screenshot>
     <screenshot>
@@ -31,8 +34,10 @@
   </screenshots>
   <url type="homepage">https://www.syntevo.com/smartsynchronize/</url>
   <developer_name>syntevo GmbH</developer_name>
+  <update_contact>smartsynchronize@syntevo.com</update_contact>
   <content_rating type="oars-1.1" />
   <releases>
+    <release type="stable" date="2019-07-18" version="4.0.0" />
     <release type="stable" date="2018-11-26" version="3.5.1" />
     <release type="stable" date="2018-05-09" version="3.5.0" />
   </releases>

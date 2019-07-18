@@ -1,64 +1,79 @@
 {
   "app-id": "com.syntevo.SmartSynchronize",
-  "command": "smartsynchronize.sh",
+  "command": "smartsynchronize",
   "runtime": "org.freedesktop.Platform",
   "runtime-version": "18.08",
-  "separate-locales": false,
   "sdk": "org.freedesktop.Sdk",
+  "separate-locales": false,
   "finish-args": [
-    "--device=all",
     "--device=dri",
     "--env=SMARTSYNCHRONIZE_JAVA_HOME=/app/extra/smartsynchronize/jre/",
-    "--filesystem=home",
+    "--filesystem=host",
     "--share=ipc",
+    "--socket=wayland",
     "--socket=x11",
+    "--talk-name=org.freedesktop.Flatpak",
     "--talk-name=org.freedesktop.Notifications"
   ],
   "modules": [
     {
+      "name": "p7zip",
+      "cleanup": [
+        "/include",
+        "/lib/*.a",
+        "/lib/*.la",
+        "/lib/pkgconfig",
+        "/share/man"
+      ],
+      "make-args": ["7z"],
+      "no-autogen": true,
+      "sources": [
+        {
+          "type": "archive",
+          "sha256": "5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f",
+          "url": "https://sourceforge.net/projects/p7zip/files/p7zip/16.02/p7zip_16.02_src_all.tar.bz2"
+        }, {
+          "type": "shell",
+          "commands": ["sed -i 's|/usr/local/|/app/|g' makefile.common"]
+        }
+      ]
+    }, {
       "name": "smartsynchronize",
       "buildsystem": "simple",
       "build-commands": [
-        "install -Dm0755 -t /app/bin/ apply_extra",
-        "install -Dm0755 -t /app/bin/ smartsynchronize.sh",
-        "install -Dm0644 -t /app/share/applications/ com.syntevo.SmartSynchronize.desktop",
-        "install -Dm0644 -t /app/share/icons/hicolor/scalable/apps/ com.syntevo.SmartSynchronize.svg",
-        "install -Dm0644 -t /app/share/metainfo/ com.syntevo.SmartSynchronize.appdata.xml"
+        "install -D -m0755 smartsynchronize.sh /app/bin/smartsynchronize",
+        "install -D -m0644 -t /app/share/applications/ ${FLATPAK_ID}.desktop",
+        "install -D -m0644 -t /app/share/icons/hicolor/scalable/apps/ ${FLATPAK_ID}.svg",
+        "install -D -m0644 -t /app/share/metainfo/ ${FLATPAK_ID}.appdata.xml",
+        "install -D -m0755 -t /app/bin/ apply_extra"
       ],
       "sources": [
         {
           "type": "extra-data",
           "filename": "smartsynchronize.tar.gz",
           "only-arches": ["x86_64"],
-          "sha256": "90d36afe41ffe2de3e34c3f8651fd1430bfbcaa01a95e2fa7edb2f26883f8d1d",
-          "size": 23371944,
-          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-3_5_1.tar.gz"
-        },
-        {
+          "sha256": "bb8c88de6a05f91ddc9e43fe7766fbbffb9ce047fb385d1f66b52bfeaf1cc1e6",
+          "size": 32396260,
+          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4.0.0.tar.gz"
+        }, {
           "type": "file",
           "path": "com.syntevo.SmartSynchronize.appdata.xml"
-        },
-        {
+        }, {
           "type": "file",
           "path": "com.syntevo.SmartSynchronize.desktop"
-        },
-        {
+        }, {
           "type": "file",
           "path": "com.syntevo.SmartSynchronize.svg"
-        },
-        {
+        }, {
           "type": "script",
           "commands": [
             "tar -zxf smartsynchronize.tar.gz",
             "rm -f smartsynchronize.tar.gz"
           ],
           "dest-filename": "apply_extra"
-        },
-        {
+        }, {
           "type": "script",
-          "commands": [
-            "exec env /app/extra/smartsynchronize/bin/smartsynchronize.sh \"$@\""
-          ],
+          "commands": ["exec /app/extra/smartsynchronize/bin/smartsynchronize.sh \"$@\""],
           "dest-filename": "smartsynchronize.sh"
         }
       ]
