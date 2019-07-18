@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=Development;
-Exec=smartsynchronize.sh
+Exec=smartsynchronize
 GenericName=File and Directory Compare
 Icon=com.syntevo.SmartSynchronize
 Keywords=compare;merge;
