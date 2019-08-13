@@ -7,7 +7,7 @@
   "separate-locales": false,
   "finish-args": [
     "--device=dri",
-    "--env=SMARTSYNCHRONIZE_JAVA_HOME=/app/extra/smartsynchronize/jre/",
+    "--env=SMARTSYNCHRONIZE_JAVA_HOME=/app/extra/smartsynchronize/jre",
     "--filesystem=host",
     "--share=ipc",
     "--socket=wayland",
@@ -22,6 +22,7 @@
         "/include",
         "/lib/*.a",
         "/lib/*.la",
+        "/lib/debug",
         "/lib/pkgconfig",
         "/share/man"
       ],
@@ -52,9 +53,9 @@
           "type": "extra-data",
           "filename": "smartsynchronize.tar.gz",
           "only-arches": ["x86_64"],
-          "sha256": "bb8c88de6a05f91ddc9e43fe7766fbbffb9ce047fb385d1f66b52bfeaf1cc1e6",
-          "size": 32396260,
-          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4.0.0.tar.gz"
+          "sha256": "a19fd8797b51d167a96661e336c5f9ef045e31c568a764e9b8dc9f0ed589baf8",
+          "size": 32402814,
+          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_0_1.tar.gz"
         }, {
           "type": "file",
           "path": "com.syntevo.SmartSynchronize.appdata.xml"
