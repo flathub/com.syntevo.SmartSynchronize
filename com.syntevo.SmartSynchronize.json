@@ -54,7 +54,7 @@
           "filename": "smartsynchronize.tar.gz",
           "only-arches": ["x86_64"],
           "sha256": "a19fd8797b51d167a96661e336c5f9ef045e31c568a764e9b8dc9f0ed589baf8",
-          "size": 32402814,
+          "size": 32402810,
           "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_0_1.tar.gz"
         }, {
           "type": "file",
