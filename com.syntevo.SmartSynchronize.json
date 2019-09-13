@@ -2,7 +2,7 @@
   "app-id": "com.syntevo.SmartSynchronize",
   "command": "smartsynchronize",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "18.08",
+  "runtime-version": "19.08",
   "sdk": "org.freedesktop.Sdk",
   "separate-locales": false,
   "finish-args": [
@@ -53,9 +53,9 @@
           "type": "extra-data",
           "filename": "smartsynchronize.tar.gz",
           "only-arches": ["x86_64"],
-          "sha256": "afa276b50a50a9eb0af9836a2556bae7a62e65b834778cc33bd8c252512d61ce",
-          "size": 32402810,
-          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_0_1.tar.gz"
+          "sha256": "849c3e5741efb43d4ce2dbe67a8a4d1fdad34a48c1fe4d40767c744df0ec66ae",
+          "size": 32403514,
+          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_0_2.tar.gz"
         }, {
           "type": "file",
           "path": "com.syntevo.SmartSynchronize.appdata.xml"
