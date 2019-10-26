@@ -42,20 +42,20 @@
       "name": "smartsynchronize",
       "buildsystem": "simple",
       "build-commands": [
-        "install -D -m0755 smartsynchronize.sh /app/bin/smartsynchronize",
-        "install -D -m0644 -t /app/share/applications/ ${FLATPAK_ID}.desktop",
-        "install -D -m0644 -t /app/share/icons/hicolor/scalable/apps/ ${FLATPAK_ID}.svg",
-        "install -D -m0644 -t /app/share/metainfo/ ${FLATPAK_ID}.appdata.xml",
-        "install -D -m0755 -t /app/bin/ apply_extra"
+        "install -D --mode=0755 smartsynchronize.sh /app/bin/smartsynchronize",
+        "install -D --mode=0644 --target-directory=/app/share/applications/ com.syntevo.SmartSynchronize.desktop",
+        "install -D --mode=0644 --target-directory=/app/share/icons/hicolor/scalable/apps/ com.syntevo.SmartSynchronize.svg",
+        "install -D --mode=0644 --target-directory=/app/share/metainfo/ com.syntevo.SmartSynchronize.appdata.xml",
+        "install -D --mode=0755 --target-directory=/app/bin/ apply_extra"
       ],
       "sources": [
         {
           "type": "extra-data",
           "filename": "smartsynchronize.tar.gz",
           "only-arches": ["x86_64"],
-          "sha256": "849c3e5741efb43d4ce2dbe67a8a4d1fdad34a48c1fe4d40767c744df0ec66ae",
-          "size": 32403514,
-          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_0_2.tar.gz"
+          "sha256": "06735f974032219bba68effeb6827a15ce0c326d023dc48933293c5fc0577a20",
+          "size": 32408207,
+          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_0_3.tar.gz"
         }, {
           "type": "file",
           "path": "com.syntevo.SmartSynchronize.appdata.xml"
@@ -68,8 +68,8 @@
         }, {
           "type": "script",
           "commands": [
-            "tar -zxf smartsynchronize.tar.gz",
-            "rm -f smartsynchronize.tar.gz"
+            "tar --gunzip --extract --file=smartsynchronize.tar.gz",
+            "rm --force smartsynchronize.tar.gz"
           ],
           "dest-filename": "apply_extra"
         }, {
