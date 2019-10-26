@@ -37,6 +37,7 @@
   <update_contact>smartsynchronize@syntevo.com</update_contact>
   <content_rating type="oars-1.1" />
   <releases>
+    <release type="stable" date="2019-10-24" version="4.0.3" />
     <release type="stable" date="2019-09-11" version="4.0.2" />
     <release type="stable" date="2019-08-13" version="4.0.1" />
     <release type="stable" date="2019-07-18" version="4.0.0" />
