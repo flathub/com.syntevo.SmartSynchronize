@@ -7,7 +7,7 @@ for comparing directory structures (for example, of software projects), and can 
 
 == Build, Install and Run Flatpak (locally)
 
-Assuming `flatpak` and `flatpak-builder` are installed, follow the next steps:
+Assuming `flatpak`, `flatpak-builder`, and `git` packages are installed, then execute the following commands:
 
 [source,shell]
 ----
@@ -20,12 +20,7 @@ $ flatpak-builder build --force-clean --install-deps-from=flathub --install --us
 $ flatpak uninstall --delete-data --user com.syntevo.SmartSynchronize
 
 # ...and to clean-up everything
-$ rm -rf .flatpak-builder/ build/
+$ rm --force --recursive .flatpak-builder/ build/
 $ flatpak uninstall --unused --user
 $ flatpak remote-delete --user flathub
 ----
-
-== Roadmap
-:uri-issues-tracker: https://github.com/flathub/com.syntevo.SmartSynchronize/issues/
-
-See the {uri-issues-tracker}[Issues^] tracker.
