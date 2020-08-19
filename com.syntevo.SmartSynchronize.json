@@ -52,9 +52,9 @@
           "type": "extra-data",
           "filename": "smartsynchronize.tar.gz",
           "only-arches": ["x86_64"],
-          "sha256": "588e34ea89cbb807f4780d509e8e078ebd4d708f92dfe2c13d16c658948d4ca6",
-          "size": 30821819,
-          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_1_0.tar.gz"
+          "sha256": "295eb6a07d67fa43191cfc74186957541f4e6c29167132617b6904923bb6d513",
+          "size": 30949251,
+          "url": "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_1_1.tar.gz"
         }, {
           "type": "file",
           "path": "apply_extra.sh"
