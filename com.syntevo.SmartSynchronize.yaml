@@ -47,11 +47,9 @@ modules:
         filename: smartsynchronize.tar.gz
         only-arches:
           - x86_64
-        sha256: be3998f235e0106cfa2a8da510e22b8b841f90d862993a5254dbe9c62f435992
-        size: 35989579
-        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_2_0.tar.gz
-      - type: file
-        path: apply_extra.sh
+        sha256: 83f079b302734bffeb8f3603d23104c9cf025b5ca03ffcf8d33bf571b1e02231
+        size: 35993723
+        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_2_1.tar.gz
       - type: file
         path: com.syntevo.SmartSynchronize.desktop
       - type: file
@@ -60,3 +58,8 @@ modules:
         path: com.syntevo.SmartSynchronize.metainfo.xml
       - type: file
         path: entrypoint.sh
+      - type: script
+        commands:
+          - tar --extract --file=smartsynchronize.tar.gz --gunzip
+          - rm --force smartsynchronize.tar.gz
+        dest-filename: apply_extra.sh
