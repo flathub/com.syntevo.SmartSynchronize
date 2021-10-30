@@ -34,6 +34,7 @@ modules:
       - type: shell
         commands:
           - sed -i 's|/usr/local/|/app/|g' makefile.common
+
   - name: smartsynchronize
     buildsystem: simple
     build-commands:
@@ -50,6 +51,11 @@ modules:
         sha256: 83f079b302734bffeb8f3603d23104c9cf025b5ca03ffcf8d33bf571b1e02231
         size: 35993723
         url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_2_1.tar.gz
+        x-checker-data:
+          type: html
+          url: https://www.syntevo.com/smartsynchronize/download/
+          url-template: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-${version0}_${version1}_${version2}.tar.gz
+          version-pattern: Version ([\d\.-]+)
       - type: file
         path: com.syntevo.SmartSynchronize.desktop
       - type: file
