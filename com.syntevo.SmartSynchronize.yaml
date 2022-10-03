@@ -1,7 +1,7 @@
 app-id: com.syntevo.SmartSynchronize
 command: smartsynchronize
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 separate-locales: false
 finish-args:
@@ -29,8 +29,7 @@ modules:
     build-commands:
       - install -D --mode=0755 entrypoint.sh /app/bin/smartsynchronize
       - install -D --mode=0644 --target-directory=/app/share/applications/ com.syntevo.SmartSynchronize.desktop
-      - install -D --mode=0644 --target-directory=/app/share/icons/hicolor/scalable/apps/
-        com.syntevo.SmartSynchronize.svg
+      - install -D --mode=0644 --target-directory=/app/share/icons/hicolor/scalable/apps/ com.syntevo.SmartSynchronize.svg
       - install -D --mode=0644 --target-directory=/app/share/metainfo/ com.syntevo.SmartSynchronize.metainfo.xml
       - install -D --mode=0755 apply_extra.sh /app/bin/apply_extra
     sources:
