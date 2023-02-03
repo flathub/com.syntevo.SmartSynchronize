@@ -1,17 +1,17 @@
 app-id: com.syntevo.SmartSynchronize
 command: smartsynchronize
 runtime: org.gnome.Platform
-runtime-version: '43'
+runtime-version: "43"
 sdk: org.gnome.Sdk
 separate-locales: false
 finish-args:
-  - --device=dri
-  - --filesystem=host
-  - --share=ipc
-  - --socket=wayland
-  - --socket=x11
-  - --talk-name=org.freedesktop.Flatpak
-  - --talk-name=org.freedesktop.Notifications
+  - "--device=dri"
+  - "--socket=fallback-x11"
+  - "--filesystem=home"
+  - "--share=ipc"
+  - "--socket=wayland"
+  - "--talk-name=org.freedesktop.Flatpak"
+  - "--talk-name=org.freedesktop.Notifications"
 modules:
   - name: p7zip
     cleanup:
@@ -25,21 +25,21 @@ modules:
         url: https://github.com/jinfeihan57/p7zip/archive/refs/tags/v17.04.tar.gz
 
   - name: smartsynchronize
-    buildsystem: simple
     build-commands:
       - install -D --mode=0755 entrypoint.sh /app/bin/smartsynchronize
       - install -D --mode=0644 --target-directory=/app/share/applications/ com.syntevo.SmartSynchronize.desktop
       - install -D --mode=0644 --target-directory=/app/share/icons/hicolor/scalable/apps/ com.syntevo.SmartSynchronize.svg
       - install -D --mode=0644 --target-directory=/app/share/metainfo/ com.syntevo.SmartSynchronize.metainfo.xml
       - install -D --mode=0755 apply_extra.sh /app/bin/apply_extra
+    buildsystem: simple
     sources:
       - type: extra-data
         filename: smartsynchronize.tar.gz
         only-arches:
           - x86_64
-        sha256: daf4d33540398a68d05e6f658deea0e2c274ebb88fc1abea2de769d1116f3cf3
-        size: 41803334
-        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_3_1.tar.gz
+        sha256: 9e128eef1705abfd44a5d4288cae30b67ec9ae2e870bc29bd9df1e5ff77fe60d
+        size: 41815082
+        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_3_2.tar.gz
         x-checker-data:
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
