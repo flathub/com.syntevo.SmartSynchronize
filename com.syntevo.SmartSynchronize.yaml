@@ -38,9 +38,9 @@ modules:
         filename: smartsynchronize.tar.gz
         only-arches:
           - x86_64
-        sha256: a50d8c213f4a456443d28c4982fd10117a3bdf81fead806eb107b17a4715c246
-        size: 41631271
-        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_4_2.tar.gz
+        sha256: 572c9b48afb2b85179b47480243be37af5e50da7e0fa957a2c9c9f694691d8c4
+        size: 41636261
+        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_4_3.tar.gz
         x-checker-data:
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
