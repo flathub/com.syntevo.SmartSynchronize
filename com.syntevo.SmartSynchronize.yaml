@@ -1,7 +1,7 @@
 app-id: com.syntevo.SmartSynchronize
 command: smartsynchronize
 runtime: org.gnome.Platform
-runtime-version: '43'
+runtime-version: '44'
 sdk: org.gnome.Sdk
 separate-locales: false
 finish-args:
@@ -9,7 +9,6 @@ finish-args:
   - --socket=fallback-x11
   - --filesystem=home
   - --share=ipc
-  - --socket=wayland
   - --talk-name=org.freedesktop.Flatpak
   - --talk-name=org.freedesktop.Notifications
 modules:
@@ -26,12 +25,11 @@ modules:
 
   - name: smartsynchronize
     build-commands:
-      - install -D --mode=0755 entrypoint.sh /app/bin/smartsynchronize
-      - install -D --mode=0644 --target-directory=/app/share/applications/ com.syntevo.SmartSynchronize.desktop
-      - install -D --mode=0644 --target-directory=/app/share/icons/hicolor/scalable/apps/
-        com.syntevo.SmartSynchronize.svg
-      - install -D --mode=0644 --target-directory=/app/share/metainfo/ com.syntevo.SmartSynchronize.metainfo.xml
-      - install -D --mode=0755 apply_extra.sh /app/bin/apply_extra
+      - install -D --mode 0755 entrypoint.sh /app/bin/smartsynchronize
+      - install -D --mode 0644 --target-directory /app/share/applications/ com.syntevo.SmartSynchronize.desktop
+      - install -D --mode 0644 --target-directory /app/share/icons/hicolor/scalable/apps/ com.syntevo.SmartSynchronize.svg
+      - install -D --mode 0644 --target-directory /app/share/metainfo/ com.syntevo.SmartSynchronize.metainfo.xml
+      - install -D --mode 0755 apply_extra.sh /app/bin/apply_extra
     buildsystem: simple
     sources:
       - type: extra-data
@@ -56,6 +54,6 @@ modules:
         path: entrypoint.sh
       - type: script
         commands:
-          - tar --extract --file=smartsynchronize.tar.gz --gunzip
+          - tar --extract --file smartsynchronize.tar.gz --gunzip
           - rm --force smartsynchronize.tar.gz
         dest-filename: apply_extra.sh
