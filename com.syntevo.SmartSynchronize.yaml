@@ -27,7 +27,8 @@ modules:
     build-commands:
       - install -D --mode 0755 entrypoint.sh /app/bin/smartsynchronize
       - install -D --mode 0644 --target-directory /app/share/applications/ com.syntevo.SmartSynchronize.desktop
-      - install -D --mode 0644 --target-directory /app/share/icons/hicolor/scalable/apps/ com.syntevo.SmartSynchronize.svg
+      - install -D --mode 0644 --target-directory /app/share/icons/hicolor/scalable/apps/
+        com.syntevo.SmartSynchronize.svg
       - install -D --mode 0644 --target-directory /app/share/metainfo/ com.syntevo.SmartSynchronize.metainfo.xml
       - install -D --mode 0755 apply_extra.sh /app/bin/apply_extra
     buildsystem: simple
@@ -36,9 +37,9 @@ modules:
         filename: smartsynchronize.tar.gz
         only-arches:
           - x86_64
-        sha256: 572c9b48afb2b85179b47480243be37af5e50da7e0fa957a2c9c9f694691d8c4
-        size: 41636261
-        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_4_3.tar.gz
+        sha256: df594e02fb989e799e3c273b1724c3fc60ecd2e9c222b19437e8bf94939fec23
+        size: 41645168
+        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_4_4.tar.gz
         x-checker-data:
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
