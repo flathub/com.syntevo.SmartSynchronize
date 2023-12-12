@@ -4,9 +4,10 @@ command: smartsynchronize
 
 finish-args:
   - --device=dri
-  - --socket=fallback-x11
   - --filesystem=home
   - --share=ipc
+  - --socket=wayland
+  - --socket=x11
   - --talk-name=org.freedesktop.Flatpak
 
 modules:
@@ -19,11 +20,18 @@ modules:
       - /share/man
     make-args:
       - 7z
+    make-install-args:
+      - DEST_HOME=/app
     no-autogen: true
     sources:
       - type: archive
-        sha256: ea029a2e21d2d6ad0a156f6679bd66836204aa78148a4c5e498fe682e77127ef
-        url: https://github.com/jinfeihan57/p7zip/archive/refs/tags/v17.04.tar.gz
+        url: https://github.com/p7zip-project/p7zip/archive/refs/tags/v17.05.tar.gz
+        sha256: d2788f892571058c08d27095c22154579dfefb807ebe357d145ab2ddddefb1a6
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/p7zip-project/p7zip/releases/latest
+          version-query: ".tag_name"
+          url-query: '"https://github.com/p7zip-project/p7zip/archive/refs/tags/\($version).tar.gz"'
 
   # -----------------------------------------------------------------------------------------------
   #
@@ -31,17 +39,15 @@ modules:
 
   - name: smartsynchronize
     build-commands:
-      - install -D --mode 0755 entrypoint.sh /app/bin/smartsynchronize
-      - install -D --mode 0644 --target-directory /app/share/applications/ ${FLATPAK_ID}.desktop
-      - install -D --mode 0644 --target-directory /app/share/metainfo/ ${FLATPAK_ID}.metainfo.xml
-      - install -D --mode 0644 --target-directory /app/share/icons/hicolor/scalable/apps/ ${FLATPAK_ID}.svg
-      - install -D --mode 0755 apply_extra.sh /app/bin/apply_extra
+      - install -D --mode 0644 --target-directory ${FLATPAK_DEST}/share/applications/ ${FLATPAK_ID}.desktop
+      - install -D --mode 0644 --target-directory ${FLATPAK_DEST}/share/metainfo/ ${FLATPAK_ID}.metainfo.xml
+      - install -D --mode 0644 --target-directory ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/ ${FLATPAK_ID}.svg
+      - install -D --mode 0755 apply_extra.sh ${FLATPAK_DEST}/bin/apply_extra
+      - install -D --mode 0755 entrypoint.sh ${FLATPAK_DEST}/bin/smartsynchronize
     buildsystem: simple
     sources:
       - type: extra-data
         filename: smartsynchronize.tar.gz
-        only-arches:
-          - x86_64
         sha256: df594e02fb989e799e3c273b1724c3fc60ecd2e9c222b19437e8bf94939fec23
         size: 41645168
         url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_4_4.tar.gz
