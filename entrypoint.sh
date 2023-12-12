@@ -1,8 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -o errexit
 
-SMARTSYNCHRONIZE_JAVA_HOME="/app/extra/smartsynchronize/jre"
-export SMARTSYNCHRONIZE_JAVA_HOME
+export SMARTSYNCHRONIZE_JAVA_HOME="/app/extra/smartsynchronize/jre"
 
-exec /app/extra/smartsynchronize/bin/smartsynchronize.sh "$@"
+exec env /app/extra/smartsynchronize/bin/smartsynchronize.sh "$@"
