@@ -1,7 +1,5 @@
 app-id: com.syntevo.SmartSynchronize
-
 command: smartsynchronize
-
 finish-args:
   - --device=dri
   - --filesystem=home
@@ -9,12 +7,7 @@ finish-args:
   - --socket=wayland
   - --socket=x11
   - --talk-name=org.freedesktop.Flatpak
-
 modules:
-  # -----------------------------------------------------------------------------------------------
-  #   D E P E N D E N C I E S
-  # -----------------------------------------------------------------------------------------------
-
   - name: p7zip
     cleanup:
       - /share/man
@@ -30,12 +23,8 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/p7zip-project/p7zip/releases/latest
-          version-query: ".tag_name"
           url-query: '"https://github.com/p7zip-project/p7zip/archive/refs/tags/\($version).tar.gz"'
-
-  # -----------------------------------------------------------------------------------------------
-  #
-  # -----------------------------------------------------------------------------------------------
+          version-query: ".tag_name"
 
   - name: smartsynchronize
     build-commands:
@@ -69,11 +58,9 @@ modules:
           - tar --extract --file smartsynchronize.tar.gz --gunzip
           - rm --force smartsynchronize.tar.gz
         dest-filename: apply_extra.sh
-
-runtime: org.gnome.Platform
-
-runtime-version: '47'
-
-sdk: org.gnome.Sdk
-
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
 separate-locales: false
+tags:
+  - proprietary
