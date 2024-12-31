@@ -24,7 +24,7 @@ modules:
           type: json
           url: https://api.github.com/repos/p7zip-project/p7zip/releases/latest
           url-query: '"https://github.com/p7zip-project/p7zip/archive/refs/tags/\($version).tar.gz"'
-          version-query: ".tag_name"
+          version-query: .tag_name
 
   - name: smartsynchronize
     build-commands:
@@ -37,9 +37,9 @@ modules:
     sources:
       - type: extra-data
         filename: smartsynchronize.tar.gz
-        sha256: df594e02fb989e799e3c273b1724c3fc60ecd2e9c222b19437e8bf94939fec23
-        size: 41645168
-        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_4_4.tar.gz
+        sha256: f7fb3f44ddf8fd8525d6f0dfc482cf34828a15148359a8a74d1f3a447cee2205
+        size: 46376926
+        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_6_0.tar.gz
         x-checker-data:
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
@@ -59,7 +59,7 @@ modules:
           - rm --force smartsynchronize.tar.gz
         dest-filename: apply_extra.sh
 runtime: org.freedesktop.Platform
-runtime-version: "24.08"
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 separate-locales: false
 tags:
