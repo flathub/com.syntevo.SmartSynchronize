@@ -37,9 +37,9 @@ modules:
     sources:
       - type: extra-data
         filename: smartsynchronize.tar.gz
-        sha256: a1cd46170880e8b3db0ac0ac18610d133f64b5cbb434835f43d76c2f6ed52292
-        size: 46391132
-        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_6_1.tar.gz
+        sha256: efc0a2741e9dec5247d7bad14f737db42087359c9ec8ecbb0ce7a9c550cb3d43
+        size: 46391581
+        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_6_2.tar.gz
         x-checker-data:
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
