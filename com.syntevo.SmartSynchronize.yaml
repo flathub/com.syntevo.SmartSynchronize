@@ -37,9 +37,9 @@ modules:
     sources:
       - type: extra-data
         filename: smartsynchronize.tar.gz
-        sha256: efc0a2741e9dec5247d7bad14f737db42087359c9ec8ecbb0ce7a9c550cb3d43
-        size: 46391581
-        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_6_2.tar.gz
+        sha256: 17e62baf4dbd9cf9e70af144848c60797968cadd8944a4b0f2e3a65724962b3a
+        size: 46392200
+        url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_6_3.tar.gz
         x-checker-data:
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
@@ -59,7 +59,7 @@ modules:
           - rm smartsynchronize.tar.gz
         dest-filename: apply_extra.sh
 runtime: org.freedesktop.Platform
-runtime-version: "25.08"
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 separate-locales: false
 tags:
