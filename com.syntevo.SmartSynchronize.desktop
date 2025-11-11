@@ -1,11 +1,14 @@
 [Desktop Entry]
-Categories=Development;
-Exec=smartsynchronize
-GenericName=File and Directory Compare
-Icon=com.syntevo.SmartSynchronize
-Keywords=compare;merge;synchronize;
+# REQUIRED
 Name=SmartSynchronize
-Terminal=false
 Type=Application
-StartupNotify=true
-StartupWMClass=syntevo-smartsynchronize
+# OPTIONAL
+Categories=Development;
+Comment=File Manager and File/Directory Compare Tool
+Exec=smartsynchronize
+Icon=com.syntevo.SmartSynchronize
+Keywords=compare;file;merge;synchronize;
+StartupNotify=false
+StartupWMClass=SmartSynchronize
+Terminal=false
+Version=1.0
