@@ -1,10 +1,11 @@
 app-id: com.syntevo.SmartSynchronize
 command: smartsynchronize
 finish-args:
+  - --allow=devel
+  - --env=SMARTSYNCHRONIZE_JAVA_HOME=/app/extra/jre
   - --device=dri
   - --filesystem=home
   - --share=ipc
-  - --socket=wayland
   - --socket=x11
   - --talk-name=org.freedesktop.Flatpak
 modules:
@@ -28,11 +29,11 @@ modules:
 
   - name: smartsynchronize
     build-commands:
-      - install -D --mode 0644 --target-directory ${FLATPAK_DEST}/share/applications/ ${FLATPAK_ID}.desktop
-      - install -D --mode 0644 --target-directory ${FLATPAK_DEST}/share/metainfo/ ${FLATPAK_ID}.metainfo.xml
-      - install -D --mode 0644 --target-directory ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/ ${FLATPAK_ID}.svg
-      - install -D --mode 0755 apply_extra.sh ${FLATPAK_DEST}/bin/apply_extra
-      - install -D --mode 0755 entrypoint.sh ${FLATPAK_DEST}/bin/smartsynchronize
+      - install -D -m 644 -t /app/share/applications/ ${FLATPAK_ID}.desktop
+      - install -D -m 644 -t /app/share/metainfo/ ${FLATPAK_ID}.metainfo.xml
+      - install -D -m 644 -t /app/share/icons/hicolor/scalable/apps/ ${FLATPAK_ID}.svg
+      - install -D -m 755 post-install-setup.sh /app/bin/apply_extra
+      - install -D -m 755 entrypoint.sh /app/bin/smartsynchronize
     buildsystem: simple
     sources:
       - type: extra-data
@@ -51,15 +52,17 @@ modules:
         path: com.syntevo.SmartSynchronize.metainfo.xml
       - type: file
         path: com.syntevo.SmartSynchronize.svg
-      - type: file
-        path: entrypoint.sh
       - type: script
         commands:
-          - tar --extract --file smartsynchronize.tar.gz --gunzip
+          - exec env "/app/extra/bin/smartsynchronize.sh" "$@"
+        dest-filename: entrypoint.sh
+      - type: script
+        commands:
+          - bsdtar -x -f smartsynchronize.tar.gz --strip-components=1
           - rm smartsynchronize.tar.gz
-        dest-filename: apply_extra.sh
+        dest-filename: post-install-setup.sh
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: "25.08"
 sdk: org.freedesktop.Sdk
 separate-locales: false
 tags:
