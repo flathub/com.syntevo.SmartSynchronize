@@ -2,6 +2,7 @@
 <component type="desktop-application">
   <content_rating type="oars-1.1" />
   <description>
+    <p>**NOTE: This wrapper is not verified by, affiliated with, or supported by syntevo GmbH.**</p>
     <p>
       SmartSynchronize is a multi-platform file and directory compare tool. It allows you to compare
       files or perform 3-way-merges, both with the ability to edit the file contents.
@@ -10,7 +11,6 @@
       SmartSynchronize is optimized for comparing directory structures (for example, of software
       projects), and can keep them synchronized.
     </p>
-    <p>**NOTE: This wrapper is not verified by, affiliated with, or supported by syntevo GmbH.**</p>
   </description>
   <developer_name>syntevo GmbH</developer_name>
   <id>com.syntevo.SmartSynchronize</id>
