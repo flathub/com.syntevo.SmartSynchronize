@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <content_rating type="oars-1.1" />
-  <description>
-    <p>**NOTE: This wrapper is not verified by, affiliated with, or supported by syntevo GmbH.**</p>
-    <p>
-      SmartSynchronize is a multi-platform file and directory compare tool. It allows you to compare
-      files or perform 3-way-merges, both with the ability to edit the file contents.
-    </p>
-    <p>
-      SmartSynchronize is optimized for comparing directory structures (for example, of software
-      projects), and can keep them synchronized.
-    </p>
-  </description>
-  <developer_name>syntevo GmbH</developer_name>
-  <id>com.syntevo.SmartSynchronize</id>
-  <launchable type="desktop-id">com.syntevo.SmartSynchronize.desktop</launchable>
-  <metadata_license>CC0-1.0</metadata_license>
-  <name>SmartSynchronize</name>
-  <project_license>LicenseRef-proprietary</project_license>
-  <releases>
-    <release version="4.6.3" date="2025-09-29">
-      <description></description>
-    </release>
-  </releases>
-  <screenshots>
-    <screenshot type="default">
-      <caption>File Manager</caption>
-      <image>https://www.syntevo.com/assets/images/products/smartsynchronize/4/file-manager-overview-18421351.png</image>
-    </screenshot>
-    <screenshot>
-      <caption>File Compare</caption>
-      <image>https://www.syntevo.com/assets/images/products/smartsynchronize/file-compare-1ef4f3a9.png</image>
-    </screenshot>
-    <screenshot>
-      <caption>Directory Compare</caption>
-      <image>https://www.syntevo.com/assets/images/products/smartsynchronize/directory-compare-4bc25510.png</image>
-    </screenshot>
-    <screenshot>
-      <caption>3-Way-Merge</caption>
-      <image>https://www.syntevo.com/assets/images/products/smartsynchronize/3-way-merge-f4075675.png</image>
-    </screenshot>
-  </screenshots>
-  <summary>File Manager and File/Directory Compare Tool</summary>
-  <update_contact>smartsynchronize@syntevo.com</update_contact>
-  <url type="help">https://docs.syntevo.com/SmartSynchronize/Latest/</url>
-  <url type="homepage">https://www.syntevo.com/smartsynchronize/</url>
+    <id>com.syntevo.SmartSynchronize</id>
+    <name>SmartSynchronize</name>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>LicenseRef-proprietary</project_license>
+    <summary>File Manager and File/Directory Compare Tool</summary>
+    <url type="homepage">https://www.syntevo.com/smartsynchronize</url>
+    <url type="help">https://docs.syntevo.com/SmartSynchronize/Latest/Manual</url>
+    <launchable type="desktop-id">com.syntevo.SmartSynchronize.desktop</launchable>
+    <developer id="com.syntevo">
+        <name>syntevo GmbH</name>
+    </developer>
+    <update_contact>smartsynchronize@syntevo.com</update_contact>
+    <content_rating type="oars-1.1" />
+    <description>
+        <p>**NOTE: This wrapper is not verified by, affiliated with, or supported by syntevo GmbH.**</p>
+        <p>
+            SmartSynchronize is a multi-platform file and directory compare tool. It allows you to compare
+            files or perform 3-way-merges, both with the ability to edit the file contents.
+        </p>
+        <p>
+            SmartSynchronize is optimized for comparing directory structures (for example, of software
+            projects), and can keep them synchronized.
+        </p>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <caption>File Manager</caption>
+            <image>https://www.syntevo.com/assets/images/products/smartsynchronize/4/file-manager-overview-18421351.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>File Compare</caption>
+            <image>https://www.syntevo.com/assets/images/products/smartsynchronize/file-compare-1ef4f3a9.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Directory Compare</caption>
+            <image>https://www.syntevo.com/assets/images/products/smartsynchronize/directory-compare-4bc25510.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>3-Way-Merge</caption>
+            <image>https://www.syntevo.com/assets/images/products/smartsynchronize/3-way-merge-f4075675.png</image>
+        </screenshot>
+    </screenshots>
+    <releases>
+        <release version="4.6.3" date="2025-09-29">
+            <url>https://www.syntevo.com/smartsynchronize/whats-new/</url>
+        </release>
+    </releases>
 </component>
