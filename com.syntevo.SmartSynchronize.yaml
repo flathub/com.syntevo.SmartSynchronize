@@ -1,5 +1,11 @@
 app-id: com.syntevo.SmartSynchronize
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
 command: smartsynchronize
+separate-locales: false
+tags:
+  - proprietary
 finish-args:
   - --allow=devel
   - --env=SMARTSYNCHRONIZE_JAVA_HOME=/app/extra/jre
@@ -18,22 +24,21 @@ modules:
       - DEST_HOME=/app
     no-autogen: true
     sources:
-      - type: archive
-        url: https://github.com/p7zip-project/p7zip/archive/refs/tags/v17.05.tar.gz
-        sha256: d2788f892571058c08d27095c22154579dfefb807ebe357d145ab2ddddefb1a6
+      - type: git
+        url: https://github.com/p7zip-project/p7zip.git
+        tag: v17.06
+        commit: d9c3d157c62e842897d4447db717f813810e1423
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/p7zip-project/p7zip/releases/latest
-          url-query: '"https://github.com/p7zip-project/p7zip/archive/refs/tags/\($version).tar.gz"'
-          version-query: .tag_name
+          type: git
+          tag-pattern: ^v([\d.]+)$
 
   - name: smartsynchronize
     build-commands:
-      - install -D -m 644 -t /app/share/applications/ ${FLATPAK_ID}.desktop
-      - install -D -m 644 -t /app/share/metainfo/ ${FLATPAK_ID}.metainfo.xml
-      - install -D -m 644 -t /app/share/icons/hicolor/scalable/apps/ ${FLATPAK_ID}.svg
-      - install -D -m 755 post-install-setup.sh /app/bin/apply_extra
-      - install -D -m 755 entrypoint.sh /app/bin/smartsynchronize
+      - install -Dm644 ${FLATPAK_ID}.desktop -t /app/share/applications/
+      - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 ${FLATPAK_ID}.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm755 post-install-setup.sh /app/bin/apply_extra
+      - install -Dm755 entrypoint.sh /app/bin/smartsynchronize
     buildsystem: simple
     sources:
       - type: extra-data
@@ -42,6 +47,7 @@ modules:
         size: 46392200
         url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_6_3.tar.gz
         x-checker-data:
+          is-main-source: true
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
           url-template: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-${version0}_${version1}_${version2}.tar.gz
@@ -61,9 +67,3 @@ modules:
           - bsdtar -x -f smartsynchronize.tar.gz --strip-components=1
           - rm smartsynchronize.tar.gz
         dest-filename: post-install-setup.sh
-runtime: org.freedesktop.Platform
-runtime-version: "25.08"
-sdk: org.freedesktop.Sdk
-separate-locales: false
-tags:
-  - proprietary
