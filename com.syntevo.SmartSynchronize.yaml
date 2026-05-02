@@ -15,22 +15,6 @@ finish-args:
   - --socket=x11
   - --talk-name=org.freedesktop.Flatpak
 modules:
-  - name: p7zip
-    cleanup:
-      - /share/man
-    make-args:
-      - 7z
-    make-install-args:
-      - DEST_HOME=/app
-    no-autogen: true
-    sources:
-      - type: git
-        url: https://github.com/p7zip-project/p7zip.git
-        tag: v17.06
-        commit: d9c3d157c62e842897d4447db717f813810e1423
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
 
   - name: smartsynchronize
     build-commands:
