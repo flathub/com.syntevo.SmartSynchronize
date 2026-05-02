@@ -31,7 +31,6 @@ modules:
         size: 46392200
         url: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-4_6_3.tar.gz
         x-checker-data:
-          is-main-source: true
           type: html
           url: https://www.syntevo.com/smartsynchronize/download/
           url-template: https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-linux-${version0}_${version1}_${version2}.tar.gz
